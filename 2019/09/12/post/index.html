@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>js对象获取key和value | 许天星的博客</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="Object.keys()&amp;#x53EF;&amp;#x4EE5;&amp;#x83B7;&amp;#x53D6;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x952E;&amp;#x540D;&amp;#x5E76;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;, &amp;#x5E76;&amp;#x6309;&amp;#x7167;&amp;#x952E;&amp;#x540D;&amp;">
+<meta name="keywords" content="Object">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js对象获取key和value">
+<meta property="og:url" content="http://yoursite.com/2019/09/12/post/index.html">
+<meta property="og:site_name" content="许天星的博客">
+<meta property="og:description" content="Object.keys()&amp;#x53EF;&amp;#x4EE5;&amp;#x83B7;&amp;#x53D6;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x952E;&amp;#x540D;&amp;#x5E76;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;, &amp;#x5E76;&amp;#x6309;&amp;#x7167;&amp;#x952E;&amp;#x540D;&amp;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-12T09:32:13.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js对象获取key和value">
+<meta name="twitter:description" content="Object.keys()&amp;#x53EF;&amp;#x4EE5;&amp;#x83B7;&amp;#x53D6;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x952E;&amp;#x540D;&amp;#x5E76;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;, &amp;#x5E76;&amp;#x6309;&amp;#x7167;&amp;#x952E;&amp;#x540D;&amp;">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "kaker",
+  "url": "http://yoursite.com"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>许天星的博客</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">kaker</a>
+                    
+                        <div class="meta">
+                            front-end  / LOLer
+                        </div>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        <div class="item">
+                            <i class="marker icon" style="float: left"></i>
+                            <div class="content">Shanghai</div>
+                        </div>
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+
+                                <a href="https://github.com/kakercoco"><i class="large github icon" style="float: left"></i></a>
+
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-post" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    js对象获取key和value
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h3 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a>Object.keys()</h3><p>&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x952E;&#x540D;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;, &#x5E76;&#x6309;&#x7167;&#x952E;&#x540D;&#x5927;&#x5C0F;&#x6392;&#x5E8F;<br>&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const obj = {1: &apos;angel&apos;, 5: &apos;kaker&apos;, 0: &apos;sopha&apos;}</span><br><span class="line">console.log(Object.keys(obj)) // [&apos;0&apos;, &apos;1&apos; , &apos;5&apos;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h3><p>&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x952E;&#x503C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6392;&#x5E8F;&#x540C;&#x4E0A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const obj = {1: &apos;angel&apos;, 5: &apos;kaker&apos;, 0: &apos;sopha&apos;}</span><br><span class="line">console.log(Object.values(obj)) // [&apos;sopha&apos;, &apos;angel&apos; , &apos;kaker&apos;]</span><br></pre></td></tr></table></figure>
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-09-12T08:36:58.000Z" itemprop="datePublished">2019-09-12</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/Object/">Object</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a class="ui tiny button disabled">Next<i class="angle right icon"></i></a>
+
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#Object-keys"><span>Object.keys()</span></a></li><li><a href="#Object-values"><span>Object.values()</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">kaker</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
